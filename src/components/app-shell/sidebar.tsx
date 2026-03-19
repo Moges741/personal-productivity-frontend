@@ -24,7 +24,6 @@ export function Sidebar({ items, collapsed, mobileOpen, onCloseMobile }: Sidebar
 
   return (
     <>
-      {/* Mobile overlay */}
       <div
         aria-hidden={!mobileOpen}
         className={cn(
@@ -48,7 +47,7 @@ export function Sidebar({ items, collapsed, mobileOpen, onCloseMobile }: Sidebar
         <SidebarContent items={items} pathname={pathname} collapsed={collapsed} />
       </motion.aside>
 
-      {/* Mobile sidebar */}
+
       <aside
         className={cn(
           "fixed left-0 top-0 z-50 h-screen w-[88%] max-w-[320px] border-r border-border/60 bg-background/95 backdrop-blur-xl p-3",
