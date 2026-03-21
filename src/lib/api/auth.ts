@@ -23,16 +23,12 @@ export async function refreshAccessToken() {
 
 export async function logout() {
   try {
-    // 1. Tell backend to clear the httpOnly refresh token cookie
-    // (Make sure your NestJS backend has a POST /auth/logout endpoint)
+    // Tell backend to clear the httpOnly refresh cookie
     await api.post("/auth/logout");
   } catch (error) {
-    console.error("Backend logout failed, clearing local state anyway", error);
+    console.error("Backend logout failed, forcing client logout", error);
   } finally {
-    // 2. Clear the middleware hint cookie
-    document.cookie = "isAuthenticated=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; samesite=lax";
-    
-    // 3. Clear Zustand memory state
+    // This will now clear memory AND the middleware cookie!
     useAuthStore.getState().clearAuth();
   }
 }
