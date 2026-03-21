@@ -47,7 +47,7 @@ export function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" aria-label="Login form">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <div className="relative">
@@ -70,7 +70,7 @@ export function LoginForm() {
         {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : "Sign in"}
       </Button>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 mt-4 mb-4">
         <Separator className="flex-1" />
         <span className="text-xs text-muted-foreground">OR</span>
         <Separator className="flex-1" />
@@ -78,7 +78,7 @@ export function LoginForm() {
 
       <GoogleAuthButton />
 
-      <div className="flex justify-between text-sm">
+      <div className="flex justify-between text-sm mt-4">
         <Link href="/forgot-password" className="text-muted-foreground hover:text-foreground">
           Forgot password?
         </Link>
