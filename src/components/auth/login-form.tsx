@@ -19,13 +19,12 @@ const schema = z.object({
   email: z.string().email("Enter a valid email"),
   password: z.string().min(6, "Minimum 6 characters"),
 });
-
 type FormValues = z.infer<typeof schema>;
 
 export function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const next = searchParams.get("next") ?? "/dashboard";
+  const next = searchParams.get("next") ?? "/";
   const setAuth = useAuthStore((s) => s.setAuth);
 
   const {

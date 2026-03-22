@@ -152,7 +152,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Calendar, CheckSquare, Gauge, Goal, NotebookPen, Settings, Zap } from "lucide-react";
+import { Calendar, CheckSquare, Gauge, Goal, NotebookPen, Train , Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // FIX IS HERE: We put navItems directly in the file so layout.tsx doesn't need to pass them
@@ -163,7 +163,7 @@ const navItems = [
   { label: "Habits", href: "/habits", icon: Zap },
   { label: "Goals", href: "/goals", icon: Goal },
   { label: "Calendar", href: "/calendar", icon: Calendar },
-  { label: "Settings", href: "/settings", icon: Settings },
+  { label: "My Progress", href: "/progress", icon: Train },
 ];
 
 type SidebarProps = {
@@ -225,13 +225,14 @@ function SidebarContent({
   return (
     <nav className="flex h-full flex-col p-3" aria-label="Main navigation">
       <div className="mb-6 mt-2 flex h-14 items-center px-3">
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 font-bold text-blue-500">
-          P
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 font-bold text-blue-500">
+          <img src="../../assets/all.png" alt="ima" />
+          
         </div>
         {!collapsed && (
-          <span className="ml-3 font-semibold tracking-tight text-foreground line-clamp-1">
-            Productivity
-          </span>
+          <Link href="/" className="ml-3 font-semibold tracking-tight text-foreground line-clamp-1">
+            Home
+          </Link>
         )}
       </div>
 
