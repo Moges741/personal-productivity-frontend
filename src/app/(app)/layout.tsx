@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Sidebar } from "@/components/app-shell/sidebar";
 import { TopNavbar } from "@/components/app-shell/top-navbar";
 import { useAuthStore } from "@/store/auth-store";
-import { ReactQueryProvider } from "@/components/providers/query-provider";
+import { QueryProvider } from "@/components/providers/query-provider";
 // import type { LucideIcon } from "lucide-react";
 // Define NavItem type locally since it's not exported from sidebar
 type NavItem = {
@@ -35,7 +35,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   if (!isAuthReady || !accessToken) return null;
 
   return (
-    <ReactQueryProvider>
+    <QueryProvider>
       <div className="min-h-screen bg-background text-foreground transition-colors">
         <Sidebar
           collapsed={collapsed}
@@ -51,6 +51,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </main>
         </div>
       </div>
-    </ReactQueryProvider>
+    </QueryProvider>
   );
 }

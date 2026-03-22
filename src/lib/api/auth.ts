@@ -32,3 +32,13 @@ export async function logout() {
     useAuthStore.getState().clearAuth();
   }
 }
+
+export async function getCurrentUser(): Promise<User | null> {
+  try {
+    const { data } = await api.get<User>("/users/me");
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch current user", error);
+    return null;
+  }
+}
