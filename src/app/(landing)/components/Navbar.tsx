@@ -52,7 +52,7 @@ export function Navbar() {
 
           {/* ── Left: Logo ──────────────────────────────────── */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            {/* <motion.div
+            <motion.div
               className="w-8 h-8 rounded-xl flex items-center justify-center"
               style={{
                 background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
@@ -62,7 +62,7 @@ export function Navbar() {
               transition={{ type: "spring", stiffness: 400 }}
             >
               <Sparkles size={16} className="text-white" />
-            </motion.div> */}
+            </motion.div>
             <span
               className={`text-xl font-bold tracking-tight ${
                 isDark ? "text-white" : "text-slate-900"
