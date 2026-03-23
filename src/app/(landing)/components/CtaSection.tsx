@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useTheme } from "next-themes";
 import { ArrowRight, Sparkles } from "lucide-react";
-
+import Image from "next/image";
 export function CtaSection() {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
@@ -58,23 +58,22 @@ export function CtaSection() {
           />
 
           {/* Icon */}
-          <motion.div
-            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mx-auto mb-6"
-            style={{
-              background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-              boxShadow: "0 0 40px rgba(99,102,241,0.5)",
-            }}
-            animate={{
-              boxShadow: [
-                "0 0 20px rgba(99,102,241,0.4)",
-                "0 0 50px rgba(99,102,241,0.7)",
-                "0 0 20px rgba(99,102,241,0.4)",
-              ],
-            }}
-            transition={{ duration: 2.5, repeat: Infinity }}
-          >
-            <Sparkles size={28} className="text-white" />
-          </motion.div>
+         
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mx-auto mb-6">
+ <Link href="/" className="flex items-center group">
+  <div className="relative h-10 w-36 shrink-0 overflow-hidden">
+    <Image
+      src="/images/logo1.png"
+      alt="Evolve"
+      width={100}
+      height={140}
+      className="object-contain  object-center"
+      priority
+    />
+  </div>
+</Link>
+          </div>
+         
 
           {/* Headline */}
           <motion.h2

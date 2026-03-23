@@ -139,7 +139,7 @@ export function HeroSection() {
           style={{ y: subY }}
           variants={item}
         >
-          Evolve unifies your notes, tasks, habits, goals, and calendar into
+         <span className="text-[50px]">A</span>ll in <span className="text-[50px]">O</span>ne unifies your notes, tasks, habits, goals, and calendar into
           one intelligent system —{" "}
           <span className={isDark ? "text-slate-200" : "text-slate-700"}>
             so discipline becomes effortless and growth becomes inevitable.

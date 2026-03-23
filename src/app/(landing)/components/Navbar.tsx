@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Menu, X, Sparkles } from "lucide-react";
+import Image from "next/image";
+
 const navLinks = [
   { label: "Dashboard", href: "/dashboard" },
 ];
@@ -51,27 +53,19 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
           {/* ── Left: Logo ──────────────────────────────────── */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <motion.div
-              className="w-8 h-8 rounded-xl flex items-center justify-center"
-              style={{
-                background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-                boxShadow: "0 0 20px rgba(99,102,241,0.4)",
-              }}
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <Sparkles size={16} className="text-white" />
-            </motion.div>
-            <span
-              className={`text-xl font-bold tracking-tight ${
-                isDark ? "text-white" : "text-slate-900"
-              }`}
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Evolve
-            </span>
-          </Link>
+        {/* ── Left: Logo ──────────────────────────────────── */}
+{/* ── Left: Logo ──────────────────────────────────── */}
+<Link href="/" className="flex items-center group">
+  <div className="relative h-10 w-36 shrink-0 overflow-hidden">
+    <Image
+      src="/images/logo1.png"
+      alt="Evolve"
+      fill
+      className="object-contain scale-[2.0] object-center"
+      priority
+    />
+  </div>
+</Link>
 
           {/* ── Center: Nav links ────────────────────────────── */}
           <nav

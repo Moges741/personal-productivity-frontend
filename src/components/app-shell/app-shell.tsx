@@ -30,11 +30,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Sidebar
-        items={navItems}
         collapsed={collapsed}
         mobileOpen={mobileOpen}
         onCloseMobile={() => setMobileOpen(false)}
-      />
+      >
+        {/* Pass navItems as children if Sidebar is designed to render them this way */}
+        {/* Example: */}
+        {/* <SidebarNav navItems={navItems} /> */}
+      </Sidebar>
 
       <div className={collapsed ? "md:pl-[84px]" : "md:pl-[272px]"}>
         <TopNavbar

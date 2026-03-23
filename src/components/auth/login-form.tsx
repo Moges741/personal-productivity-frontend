@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Loader2, Mail, Lock } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -47,26 +48,47 @@ export function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+
+      {/* ── Email ───────────────────────────────────────────── */}
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <div className="relative">
           <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <Input id="email" type="email" className="pl-9" {...register("email")} />
+          <Input
+            id="email"
+            type="email"
+            className="pl-9"
+            {...register("email")}
+          />
         </div>
-        {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
+        {errors.email && (
+          <p className="text-xs text-red-500">{errors.email.message}</p>
+        )}
       </div>
 
+      {/* ── Password ────────────────────────────────────────── */}
       <div className="space-y-2">
         <Label htmlFor="password">Password</Label>
         <div className="relative">
           <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <Input id="password" type="password" className="pl-9" {...register("password")} />
+          <Input
+            id="password"
+            type="password"
+            className="pl-9"
+            {...register("password")}
+          />
         </div>
-        {errors.password && <p className="text-xs text-red-500">{errors.password.message}</p>}
+        {errors.password && (
+          <p className="text-xs text-red-500">{errors.password.message}</p>
+        )}
       </div>
 
       <Button className="w-full rounded-xl" disabled={isSubmitting}>
-        {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : "Sign in"}
+        {isSubmitting ? (
+          <Loader2 className="h-4 w-4 animate-spin" />
+        ) : (
+          "Sign in"
+        )}
       </Button>
 
       <div className="flex items-center gap-3 mt-4 mb-4">
@@ -78,7 +100,10 @@ export function LoginForm() {
       <GoogleAuthButton />
 
       <div className="flex justify-between text-sm mt-4">
-        <Link href="/forgot-password" className="text-muted-foreground hover:text-foreground">
+        <Link
+          href="/forgot-password"
+          className="text-muted-foreground hover:text-foreground"
+        >
           Forgot password?
         </Link>
         <Link href="/signup" className="text-blue-500 hover:text-blue-400">

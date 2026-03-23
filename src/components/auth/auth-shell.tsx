@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link"; // ✅ FIXED
+import Image from "next/image";
 
 export function AuthShell({
   title,
@@ -19,8 +21,33 @@ export function AuthShell({
         transition={{ duration: 0.35 }}
         className="w-full max-w-md rounded-2xl border border-border/60 bg-card/70 backdrop-blur-xl p-6 shadow-xl"
       >
-        <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
-        <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>
+        {/* 🔷 Logo */}
+        <Link
+          href="/"
+          className="flex flex-col items-center gap-2 mb-6 group"
+        >
+          <div className="relative h-16 w-16 overflow-hidden">
+            <Image
+              src="/images/logo1.png"
+              alt="Evolve"
+              fill
+              className="object-contain scale-[1.8] object-center"
+              priority
+            />
+          </div>
+        </Link>
+
+        {/* 🔷 Title */}
+        <h1 className="text-2xl font-semibold tracking-tight text-center">
+          {title}
+        </h1>
+
+        {/* 🔷 Subtitle */}
+        <p className="mt-1 text-sm text-muted-foreground text-center">
+          {subtitle}
+        </p>
+
+        {/* 🔷 Content */}
         <div className="mt-6">{children}</div>
       </motion.div>
     </main>

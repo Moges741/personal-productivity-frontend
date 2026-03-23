@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Productivity SaaS",
+  title: "All in One",
   description: "Personal productivity platform",
 };
 
@@ -28,11 +28,11 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <QueryProvider>          {/* 👈 wrap here */}
+          <QueryProvider>         
             <AuthProvider>
               {children}
             </AuthProvider>
-          </QueryProvider>         {/* 👈 close here */}
+          </QueryProvider>        
           <Toaster richColors position="top-right" />
         </ThemeProvider>
       </body>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
-
+import Image from "next/image";
 const links = {
   Product: ["Features", "Pricing", "Changelog", "Roadmap"],
   Company: ["About", "Blog", "Careers", "Press"],
@@ -18,23 +18,17 @@ export function Footer() {
 
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div
-                className="w-8 h-8 rounded-xl flex items-center justify-center"
-                style={{
-                  background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-                  boxShadow: "0 0 16px rgba(99,102,241,0.3)",
-                }}
-              >
-                <Sparkles size={16} className="text-white" />
-              </div>
-              <span
-                className="text-xl font-bold tracking-tight text-foreground"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Evolve
-              </span>
-            </div>
+            <Link href="/" className="flex items-center group">
+  <div className="relative h-10 w-36 shrink-0 overflow-hidden">
+    <Image
+      src="/images/logo1.png"
+      alt="Evolve"
+      fill
+      className="object-contain scale-[2.0] object-center"
+      priority
+    />
+  </div>
+</Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-[200px]">
               Become the strongest version of yourself. One day at a time.
             </p>
@@ -68,7 +62,7 @@ export function Footer() {
           style={{ borderColor: "rgba(99,102,241,0.08)" }}
         >
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Evolve. Built for people who refuse to settle.
+            © {new Date().getFullYear()} All in One. Built with ❤️ by<Link href="https://dev-moges.me" className="hover:underline hover:text-foreground"> Moges</Link>.
           </p>
           <p className="text-xs text-muted-foreground/50">
             Discipline · Growth · Mastery
