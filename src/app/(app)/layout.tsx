@@ -32,8 +32,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     if (isAuthReady && !accessToken) router.replace("/login");
   }, [isAuthReady, accessToken, router]);
 
-  if (!isAuthReady || !accessToken) return null;
-
+if (!isAuthReady || !accessToken) {
+  return <div className="flex min-h-screen items-center justify-center">Loading...</div>;
+}
   return (
     <QueryProvider>
       <div className="min-h-screen bg-background text-foreground transition-colors">
